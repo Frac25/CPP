@@ -1,7 +1,8 @@
 NAME = map
 
 PROG =	map\
-		map.class
+		PhoneBook\
+		Contact
 
 OBJ_DIR = obj
 

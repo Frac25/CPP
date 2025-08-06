@@ -1,5 +1,14 @@
 # include <iostream>
-# include"map.hpp"
+# include"PhoneBook.hpp"
+
+std::string trunc(std::string s)
+{
+	if ( s.length() > PhoneBook::l_col)
+	{
+		return (s.substr(0,PhoneBook::l_col-1) + ".");
+	}
+	return(s);
+}
 
 int main (void)
 {
