@@ -1,0 +1,3 @@
+mettre tout contact dans public
+verifier qu il n y a pas d argeument au lancement du programme
+simplifier trunc avec setw ou ...w je sais plus
