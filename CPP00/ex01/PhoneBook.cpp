@@ -1,4 +1,5 @@
 #include"PhoneBook.hpp"
+#include<sstream>
 
 
 int PhoneBook::ind = 0;
@@ -47,6 +48,7 @@ void PhoneBook::add(void)
 void PhoneBook::search(void)
 {
 	int i = 0;
+	int index;
 	std::string buf;
 
 	std::cout << std::endl << "     Index|First Name| Last Name|  Nickname" << std::endl;
@@ -67,7 +69,9 @@ void PhoneBook::search(void)
 		std::cout << std::endl;
 		return;
 	}
-	int index = std::stoi(buf);
+
+	std::istringstream iss(buf);
+	iss >> index;
 	if(index >= 0  && index < PhoneBook::nb_contact)
 	{
 		std::cout << "First Name : " << contact[index].first_name << std::endl
