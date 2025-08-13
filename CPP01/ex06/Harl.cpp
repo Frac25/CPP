@@ -23,19 +23,28 @@ void Harl::complain(std::string level)
 
 	int i = 0;
 
-	while (i < 4)
+	while (i < 4 && level != levels[i])
 	{
-		if(level == levels[i])
-		{
-			(this->*complain[i])();
-			return;
-		}
-			
 		i++;
 	}
 
-	std::cout << "probably complaining about insignificant problems" << std::endl;
+	std::cout << "i = " << i << std::endl;
 
+	switch(i)
+	{
+		default :
+			std::cout << "probably complaining about insignificant problems" << std::endl;
+			break;
+		case 0 :
+			(this->*complain[0])();
+		case 1 :
+			(this->*complain[1])();
+		case 2 :
+			(this->*complain[2])();
+		case 3 :
+			(this->*complain[3])();
+
+	}
 }
 
 void Harl::debug(void)

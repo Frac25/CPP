@@ -1,6 +1,6 @@
-NAME = map
+NAME = PhoneBook
 
-PROG =	map\
+PROG =	main\
 		PhoneBook\
 		Contact
 
