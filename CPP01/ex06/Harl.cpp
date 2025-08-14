@@ -28,7 +28,7 @@ void Harl::complain(std::string level)
 		i++;
 	}
 
-	std::cout << "i = " << i << std::endl;
+//	std::cout << "i = " << i << std::endl;
 
 	switch(i)
 	{
@@ -37,10 +37,13 @@ void Harl::complain(std::string level)
 			break;
 		case 0 :
 			(this->*complain[0])();
+			// fallthrough
 		case 1 :
 			(this->*complain[1])();
+			// fallthrough
 		case 2 :
 			(this->*complain[2])();
+			// fallthrough
 		case 3 :
 			(this->*complain[3])();
 

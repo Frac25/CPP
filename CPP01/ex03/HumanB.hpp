@@ -16,7 +16,7 @@ class HumanB
 	void setWeapon(Weapon &p2);
 
 	private :
-	Weapon		*_weapon;
+	Weapon*	_weapon;
 
 };
 
