@@ -72,6 +72,8 @@
 		"ranges": "cpp",
 		"span": "cpp",
 		"fstream": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"__std_stream": "cpp",
+		"filesystem": "cpp"
 	}
 }
