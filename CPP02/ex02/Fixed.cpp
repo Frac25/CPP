@@ -10,7 +10,6 @@
 	Fixed::Fixed(const int p) : _value(p<<_frac)
 	{
 
-
 	}
 
 	Fixed::Fixed(const float p) : _value(static_cast<int>(roundf(p * (1 << _frac))))
