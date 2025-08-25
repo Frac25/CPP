@@ -74,6 +74,7 @@
 		"fstream": "cpp",
 		"stack": "cpp",
 		"__std_stream": "cpp",
-		"filesystem": "cpp"
+		"filesystem": "cpp",
+		"__functional_03": "cpp"
 	}
 }
