@@ -85,7 +85,7 @@ int check_ep(ClapTrap &t)
 	{
 		if (check_hp(*this) || check_ep(*this))
 			return;
-		std::cout << getName() << " loose " << amount << " hp!" << std::endl;
+		std::cout << getName() << " lose " << amount << " hp!" << std::endl;
 		_health_point -= amount;
 	}
 
@@ -129,8 +129,8 @@ int check_ep(ClapTrap &t)
 
 	void ClapTrap::setEnergyPoint(int amount)
 	{
-		std::cout << _name << "'s EP = " << _energy_point << std::endl;
 		_energy_point = amount;
+		std::cout << _name << "'s EP = " << _energy_point << std::endl;
 	}
 
 	int& ClapTrap::getAttackDamage(void)
@@ -143,4 +143,3 @@ int check_ep(ClapTrap &t)
 		std::cout << _name << "'s Damage = " << _attack_damage << std::endl;
 		_attack_damage = amount;
 	}
-
