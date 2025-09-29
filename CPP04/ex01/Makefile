@@ -1,11 +1,10 @@
-NAME = Animal
+NAME = Brain
 
 PROG =	main\
 		Animal\
 		Cat\
 		Dog\
-		Brain\
-		libft
+		Brain
 
 OBJ_DIR = obj
 
