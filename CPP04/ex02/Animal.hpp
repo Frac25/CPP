@@ -15,7 +15,7 @@ class Animal
 		const std::string& getType() const;
 		void setType(std::string type);
 
-		virtual void makeSound() const;
+		virtual void makeSound() const = 0; //virtuelle pure
 
 		virtual std::string getIdea(int num) const;
 		virtual void setIdea(int num, std::string Idea);
