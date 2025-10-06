@@ -1,6 +1,7 @@
 NAME = bureaucrat
 
 PROG =	main\
+		Bureaucrat\
 		Form
 
 OBJ_DIR = obj

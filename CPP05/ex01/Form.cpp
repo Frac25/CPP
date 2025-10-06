@@ -27,7 +27,10 @@
 		}
 
 		Form &Form::operator=(const Form &copy)
-
+		{
+			
+		}
+/*
 		void Form::beSigned(const Bureaucrat &bureaucrat)
 
 		std::string Form::getName() const
@@ -37,7 +40,7 @@
 		void Form::setGradeToSigne(int grade)
 		void Form::setGradeToExecute(int grade)
 
-/*		class GradeTooHighException : public std::exception
+		class GradeTooHighException : public std::exception
 		{
 			public :
 				const char* what() const throw();
