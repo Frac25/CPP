@@ -46,41 +46,47 @@ int Bureaucrat::getGrade() const
 void Bureaucrat::setGrade(int grade)
 {
 	if(grade <= 0)
-		throw GradeTooHightException();
+		throw GradeTooHighException();
 	if(grade > 150)
 		throw GradeTooLowException();
 	_grade = grade;
 }
 
-void increment(int grade)
+void Bureaucrat::increment(int grade)
 {
 	int new_grade = _grade - grade;
 
 	if(new_grade < 1)
-		throw GradeTooHightException();
+		throw GradeTooHighException();
 	if(new_grade > 150)
 		throw GradeTooLowException();
 	_grade = new_grade;
 }
 
-void decrement(int grade)
+void Bureaucrat::decrement(int grade)
 {
 	int new_grade = _grade + grade;
 
 	if(new_grade < 1)
-		throw GradeTooHightException();
+		throw GradeTooHighException();
 	if(new_grade > 150)
 		throw GradeTooLowException();
 	_grade = new_grade;
 
 }
 
-const char *Bureaucrat::GradeTooHightException::what() const throw()
+const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("grade too Hight");
+	return ("Grade too High!");
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("grade too Low");
+	return ("Grade too Low!");
+}
+
+std::ostream &operator<<(std::ostream &os, Bureaucrat const &other)
+{
+	os << other.getName() << ", grade : " << other.getGrade();
+	return (os);
 }

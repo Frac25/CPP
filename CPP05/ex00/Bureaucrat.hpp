@@ -1,8 +1,9 @@
 #ifndef BUREAUCRAT_HPP
-# define BUREAUCRATE_HPP
+# define BUREAUCRAT_HPP
 
 #include <iostream>
 #include <exception>
+
 
 class Bureaucrat
 {
@@ -27,7 +28,7 @@ class Bureaucrat
 		void decrement(int grade);
 
 		//Exceptions
-		class GradeTooHightException : public std::exception
+		class GradeTooHighException : public std::exception
 		{
 			public :
 				const char *what() const throw();
@@ -41,5 +42,6 @@ class Bureaucrat
 
 };
 
+std::ostream &operator<<(std::ostream &os, Bureaucrat const &other);
 
 #endif
