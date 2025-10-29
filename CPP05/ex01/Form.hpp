@@ -2,32 +2,33 @@
 # define FORM_HPP
 
 #include <iostream>
-#include "Bureaucrat.hpp"
+
+class Bureaucrat; // declaration anticipee (pour eviter les ref circulaires)
 
 class Form
 {
 	private :
 		const std::string	_name;
-		bool				_signature;
 		const int			_gradeToSigne;
 		const int			_gradeToExecute;
+		bool				_signature;
 
 	public :
 		Form();
-		Form(const std::string name, const int gradeToSigne, const int gradeToExecute);
+		Form(const std::string name, int gradeToSigne, int gradeToExecute);
 		~Form();
 		Form(const Form &copy);
 		Form &operator=(const Form &copy);
 
-/*		void beSigned(const Bureaucrat &bureaucrat);
+		void beSigned(const Bureaucrat &bureaucrat);
 
 		std::string getName() const;
 		bool getSignature() const;
 		int getGradeToSigne() const;
 		int getGradeToExecute() const;
 
-		void setGradeToSigne(int grade);
-		void setGradeToExecute(int grade);
+//		void setGradeToSigne(int grade);
+//		void setGradeToExecute(int grade);
 
 		class GradeTooHighException : public std::exception
 		{
@@ -40,7 +41,7 @@ class Form
 			public :
 				const char* what() const throw();
 		};
-*/
+
 };
 
 std::ostream& operator<<(std::ostream &os, const Form &form);
