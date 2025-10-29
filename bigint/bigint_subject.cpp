@@ -4,10 +4,7 @@
 int main()
 {
 	const bigint a(42);
-	bigint b(21);
-	bigint c;
-	bigint d(1337);
-	bigint e(d);
+	bigint b(21), c, d(1337), e(d);
 
 	std::cout << "a = " << a << std::endl;
 	std::cout << "b = " << b << std::endl;
@@ -15,7 +12,7 @@ int main()
 	std::cout << "d = " << d << std::endl;
 	std::cout << "e = " << e << std::endl;
 	std::cout << "a + b = " << a + b << std::endl;
-/*	std::cout << "(c += a) = " << (c += a) << std::endl;
+	std::cout << "(c += a) = " << (c += a) << std::endl;
 	std::cout << "b = " << b << std::endl;
 	std::cout << "++b = " << ++b << std::endl;
 	std::cout << "b++ = " << b++ << std::endl;
@@ -30,5 +27,4 @@ int main()
 	std::cout << "(d != a) = " << (d != a) << std::endl;
 	std::cout << "(d <= a) = " << (d <= a) << std::endl;
 	std::cout << "(d >= a) = " << (d >= a) << std::endl;
-	*/
 }

@@ -3,24 +3,22 @@
 
 #include<iostream>
 
-class BigInt
+class bigint
 {
 	public :
-		BigInt();
-		BigInt(const std::string &nb);
-		~BigInt();
+	bigint();
+	bigint(unsigned int n);
+	~bigint();
+	bigint(const bigint &copy);
+	std::string getValue() const;
 
-		BigInt operator+(const BigInt &a) const;
+	bigint operator+(const bigint & n) const;
 
-		bool operator<(const BigInt &a) const;
-
-	
-	public :
-		int sign;
-		std::string value;
+	private :
+	std::string _value;
 
 };
 
-std::ostream& operator<<(std::ostream &str, const BigInt &b);
+std::ostream & operator<<(std::ostream &str, const bigint &copy);
 
 #endif

@@ -1,62 +1,44 @@
-#include"BigInt.hpp"
-
-BigInt::BigInt()
-{
-	sign = 1;
-	value = "0";
-}
-
-BigInt::BigInt(const std::string &nb)
-{
-	int i = 0;
-	int j = 0;
-
-	std::string nb2 = nb;
-
-	if(nb2[i] == '-')
-	{
-		sign = -1;
-		i++;
-	}
-	while(nb2[i])
-	{
-		value[j] = nb2[i];
-		i++;
-		j++;
-	}
-
-	value = "456";
+#include"bigint.hpp"
 
 
-}
-
-BigInt::~BigInt()
+bigint::bigint() : _value("0")
 {
 
 }
 
-
-BigInt BigInt::operator+(const BigInt &a) const
+bigint::bigint(unsigned int n) : _value(std::to_string(n))
 {
-	BigInt b;
-
-	b.value = "789";
-	b.sign = 1;
-
-	return(b);
 
 }
 
-bool BigInt::operator<(const BigInt &a) const
+bigint::~bigint()
 {
-
-	return(1);
 
 }
 
-
-std::ostream& operator<<(std::ostream &str, const BigInt &b)
+bigint::bigint(const bigint &copy) : _value(copy._value)
 {
-	str << b.sign << " "<< b.value;
+
+}
+
+std::string bigint::getValue() const
+{
+	return(_value);
+}
+
+bigint bigint::operator+(const bigint & n) const
+{
+	unsigned long a = to_int(_value);
+	unsigned long b = to_int(n.getValue());
+	unsigned long c = a + b;
+	bigint d(to_string(c));
+
+	return(d);
+}
+
+std::ostream & operator<<(std::ostream &str, const bigint &copy)
+{
+	str << copy.getValue();
+
 	return(str);
 }
