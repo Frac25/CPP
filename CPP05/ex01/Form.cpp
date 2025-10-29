@@ -1,78 +1,100 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp" // (pour eviter les ref circulaires)
 
-		Form::Form() : _name("name"), _gradeToSigne(150), _gradeToExecute(150), _signature(0)
+	Form::Form() : _name("name"), _gradeToSigne(150), _gradeToExecute(150), _signature(0)
+	{
+
+	}
+
+	Form::Form(const std::string name, int gradeToSigne, int gradeToExecute)
+		:
+		_name(name),
+		_gradeToSigne(gradeToSigne),
+		_gradeToExecute(gradeToExecute),
+		_signature(0)
+	{
+	//	setGradeToSigne(gradeToSigne); // pourquoi ca ne fomctionne pas alors que pk pour les bureaucrat?
+	//	setGradeToExecute(gradeToExecute);
+
+		if(gradeToSigne < 1 || gradeToExecute < 1)
+			throw GradeTooHighException();
+		if(gradeToSigne > 150 || gradeToExecute > 150)
+			throw GradeTooLowException();
+	}
+
+	Form::~Form()
+	{
+
+	}
+
+	Form::Form(const Form &copy)
+		:
+		_name(copy._name),
+		_gradeToSigne(copy._gradeToSigne),
+		_gradeToExecute(copy._gradeToExecute),
+		_signature(0)
+	{
+
+	}
+
+	Form &Form::operator=(const Form &copy)
+	{
+		if (this != &copy)
+			_signature = copy._signature;
+		return (*this);
+	}
+
+	void Form::beSigned(const Bureaucrat &bureaucrat)
+	{
+		if (bureaucrat.getGrade() <= getGradeToSigne())
 		{
-
+			_signature = 1;
+			std::cout << bureaucrat.getName() << " signed " << getName() << std::endl;
 		}
-
-		Form::Form(const std::string name, int gradeToSigne, int gradeToExecute)
-			:
-			_name(name),
-			_gradeToSigne(gradeToSigne),
-			_gradeToExecute(gradeToExecute),
-			_signature(0)
+		else
 		{
+			std::cout << bureaucrat.getName() << " couldn't sign " << getName() << " because ";
+			throw (GradeTooLowException());
 		}
+	}
 
-		Form::~Form()
-		{
+	std::string Form::getName() const
+	{
+		return (_name);
+	}
 
-		}
+	bool Form::getSignature() const
+	{
+		return(_signature);
+	}
 
-		Form::Form(const Form &copy)
-			:
-			_name(copy._name),
-			_gradeToSigne(copy._gradeToSigne),
-			_gradeToExecute(copy._gradeToExecute),
-			_signature(0)
-		{
+	int Form::getGradeToSigne() const
+	{
+		return(_gradeToSigne);
+	}
 
-		}
+	int Form::getGradeToExecute() const
+	{
+		return(_gradeToExecute);
+	}
 
-		Form &Form::operator=(const Form &copy)
-		{
-			if (this != &copy)
-				_signature = copy._signature;
-			return (*this);
-		}
+	void Form::setGradeToSigne(int grade)
+	{
+		if(grade < 1)
+			throw GradeTooHighException();
+		if(grade > 150)
+			throw GradeTooLowException();
+//		_gradeToSigne = grade;
+	}
 
-		void Form::beSigned(const Bureaucrat &bureaucrat)
-		{
-			if (bureaucrat.getGrade() <= getGradeToSigne())
-			{
-				_signature = 1;
-				std::cout << bureaucrat.getName() << " signed " << getName() << std::endl;
-			}
-			else
-			{
-				std::cout << bureaucrat.getName() << " couldn't sign " << getName() << " because ";
-				throw (GradeTooLowException());
-			}
-		}
-
-		std::string Form::getName() const
-		{
-			return (_name);
-		}
-
-		bool Form::getSignature() const
-		{
-			return(_signature);
-		}
-
-		int Form::getGradeToSigne() const
-		{
-			return(_gradeToSigne);
-		}
-
-		int Form::getGradeToExecute() const
-		{
-			return(_gradeToExecute);
-		}
-
-//		void Form::setGradeToSigne(int grade)
-//		void Form::setGradeToExecute(int grade)
+	void Form::setGradeToExecute(int grade)
+	{
+		if(grade < 1)
+			throw GradeTooHighException();
+		if(grade > 150)
+			throw GradeTooLowException();
+//		_gradeToExecute = grade;
+	}
 
 const char *Form::GradeTooHighException::what() const throw()
 {

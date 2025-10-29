@@ -45,7 +45,7 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::setGrade(int grade)
 {
-	if(grade <= 0)
+	if(grade < 1)
 		throw GradeTooHighException();
 	if(grade > 150)
 		throw GradeTooLowException();

@@ -52,5 +52,78 @@ int main(void)
 	{
 		std::cerr << e.what( ) << std::endl;
 	}
+
+	std::cout << std::endl << "------TEST Grad to sign too low------" << std::endl<< std::endl;
+
+	try
+	{
+
+		Bureaucrat a("Yoda", 1);
+		std::cout << a << std::endl;
+		Form f1("Formulaire_1", 1000, 20);
+		std::cout << f1 << std::endl;
+		a.signForm(f1);
+		std::cout << f1 << std::endl;
+
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what( ) << std::endl;
+	}
+
+		std::cout << std::endl << "------TEST Grad to sign too hight------" << std::endl<< std::endl;
+
+	try
+	{
+
+		Bureaucrat a("Yoda", 1);
+		std::cout << a << std::endl;
+		Form f1("Formulaire_1", 0, 20);
+		std::cout << f1 << std::endl;
+		a.signForm(f1);
+		std::cout << f1 << std::endl;
+
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what( ) << std::endl;
+	}
+
+	std::cout << std::endl << "------TEST Grad to execute too low------" << std::endl<< std::endl;
+
+	try
+	{
+
+		Bureaucrat a("Yoda", 1);
+		std::cout << a << std::endl;
+		Form f1("Formulaire_1", 100, 1000);
+		std::cout << f1 << std::endl;
+		a.signForm(f1);
+		std::cout << f1 << std::endl;
+
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what( ) << std::endl;
+	}
+
+		std::cout << std::endl << "------TEST Grad to execute too hight------" << std::endl<< std::endl;
+
+	try
+	{
+
+		Bureaucrat a("Yoda", 1);
+		std::cout << a << std::endl;
+		Form f1("Formulaire_1", 100, 0);
+		std::cout << f1 << std::endl;
+		a.signForm(f1);
+		std::cout << f1 << std::endl;
+
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what( ) << std::endl;
+	}
+
 return(0);
 }

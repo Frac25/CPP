@@ -27,8 +27,8 @@ class Form
 		int getGradeToSigne() const;
 		int getGradeToExecute() const;
 
-//		void setGradeToSigne(int grade);
-//		void setGradeToExecute(int grade);
+		void setGradeToSigne(int grade);
+		void setGradeToExecute(int grade);
 
 		class GradeTooHighException : public std::exception
 		{
