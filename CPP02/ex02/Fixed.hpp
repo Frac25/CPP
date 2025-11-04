@@ -50,6 +50,6 @@ class Fixed
 		static const int	_frac;
 };
 
-	std::ostream& operator<<(std::ostream &str, const Fixed &fixed_nbr);
+	std::ostream& operator<<(std::ostream& str, const Fixed &fixed_nbr);
 
 #endif
