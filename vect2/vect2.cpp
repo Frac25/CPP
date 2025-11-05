@@ -39,3 +39,100 @@ std::ostream& operator<<(std::ostream& o, const vect2& vect)
 	o << "{" << vect.v[0] << ", " << vect.v[1] << "}";
 	return(o);
 }
+
+vect2& vect2::operator++() //++v4
+{
+	v[0]++;
+	v[1]++;
+	return(*this);
+}
+
+vect2 vect2::operator++(int) //v4++
+{
+	vect2 tmp(*this);
+	v[0]++;
+	v[1]++;
+	return(tmp);
+}
+
+vect2& vect2::operator--() //--v4
+{
+	v[0]--;
+	v[1]--;
+	return(*this);
+}
+
+vect2 vect2::operator--(int) //v4--
+{
+	vect2 tmp(*this);
+	v[0]--;
+	v[1]--;
+	return(tmp);
+}
+
+vect2& vect2::operator+=(const vect2&copy)
+{
+	v[0] = v[0] + copy.v[0];
+	v[1] = v[1] + copy.v[1];
+
+	return(*this);
+}
+
+vect2& vect2::operator-=(const vect2&copy)
+{
+	v[0] = v[0] - copy.v[0];
+	v[1] = v[1] - copy.v[1];
+
+	return(*this);
+}
+
+vect2& vect2::operator*=(const vect2& copy)
+{
+	v[0]*=copy.v[0];
+	v[1]*=copy.v[1];
+	return(*this);
+}
+
+vect2& vect2::operator*=(int i)
+{
+	v[0]*=i;
+	v[1]*=i;
+	return(*this);
+}
+
+vect2 vect2::operator+(const vect2& copy) const
+{
+	vect2 tmp;
+	tmp.v[0] = v[0] + copy.v[0];
+	tmp.v[1] = v[1] + copy.v[1];
+	return(tmp);
+}
+
+vect2 vect2::operator-(const vect2& copy) const
+{
+	vect2 tmp;
+	tmp.v[0] = v[0] - copy.v[0];
+	tmp.v[1] = v[1] - copy.v[1];
+	return(tmp);
+}
+
+vect2 vect2::operator*(const vect2& copy) const
+{
+	vect2 tmp;
+	tmp.v[0] = v[0] * copy.v[0];
+	tmp.v[1] = v[1] * copy.v[1];
+	return(tmp);
+}
+
+vect2 vect2::operator*(int i) const
+{
+	vect2 tmp;
+	tmp.v[0] = v[0] * i;
+	tmp.v[1] = v[1] * i;
+	return(tmp);
+}
+
+vect2 operator*(int i, const vect2& copy)
+{
+	return(copy * i);
+}
