@@ -3,8 +3,26 @@
 
 # include "AForm.hpp"
 
-class ShrubberyCreationForm :: AForm
+class ShrubberyCreationForm :: public AForm
 {
+	private :
+	std:string _target;
+
+	public :
+	
+	ShrubberyCreationForm();
+	~ShrubberyCreationForm();
+	ShrubberyCreationForm(const std::string & target);
+	ShrubberyCreationForm(const ShrubberyCreationForm & copy);
+	ShrubberyCreationForm& operator=(const ShrubberyCreationForm & copy);
+	
+	make_shrubbery();
+
+
+
+
+	
+
 
 };
 

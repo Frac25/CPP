@@ -13,8 +13,6 @@
 		_gradeToExecute(gradeToExecute),
 		_signature(0)
 	{
-	//	setGradeToSigne(gradeToSigne); // pourquoi ca ne fomctionne pas alors que pk pour les bureaucrat?
-	//	setGradeToExecute(gradeToExecute);
 
 		if(gradeToSigne < 1 || gradeToExecute < 1)
 			throw GradeTooHighException();
@@ -105,8 +103,6 @@ const char *AForm::GradeTooLowException::what() const throw()
 {
 	return ("Grade too Low!");
 }
-
-
 
 std::ostream &operator<<(std::ostream &os, const AForm &form)
 {
