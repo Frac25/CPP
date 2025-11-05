@@ -32,6 +32,11 @@ class vect2
 
 	vect2 operator*(int i) const;
 
+	int operator[](int i) const;
+
+	bool operator==(const vect2& copy) const;
+	bool operator!=(const vect2& copy) const;
+	
 };
 
 vect2 operator*(int i, const vect2& copy);

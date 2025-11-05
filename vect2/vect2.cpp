@@ -34,11 +34,7 @@ int vect2::operator[](int i)
 	return(v[i]);
 }
 
-std::ostream& operator<<(std::ostream& o, const vect2& vect)
-{
-	o << "{" << vect.v[0] << ", " << vect.v[1] << "}";
-	return(o);
-}
+
 
 vect2& vect2::operator++() //++v4
 {
@@ -135,4 +131,25 @@ vect2 vect2::operator*(int i) const
 vect2 operator*(int i, const vect2& copy)
 {
 	return(copy * i);
+}
+
+int vect2::operator[](int i) const
+{
+	return(v[i]);
+}
+
+bool vect2::operator==(const vect2& copy) const
+{
+	return (v[0] == copy.v[0] && v[1] == copy.v[1]);
+}
+
+bool vect2::operator!=(const vect2& copy) const
+{
+	return (v[0] != copy.v[0] || v[1] != copy.v[1]);
+}
+
+std::ostream& operator<<(std::ostream& o, const vect2& vect)
+{
+	o << "{" << vect.v[0] << ", " << vect.v[1] << "}";
+	return(o);
 }
