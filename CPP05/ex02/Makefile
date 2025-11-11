@@ -3,7 +3,10 @@ NAME = form
 PROG =	main\
 		Bureaucrat\
 		AForm\
-		ShrubberyCreationForm
+		ShrubberyCreationForm\
+		RobotomyRequestForm\
+		PresidentialPardonForm
+
 
 OBJ_DIR = obj
 

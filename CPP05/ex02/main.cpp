@@ -1,6 +1,9 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
 
 int main(void)
 {
@@ -54,6 +57,42 @@ int main(void)
 		Bureaucrat_3.signAForm(Shrubby_form3);
 		std::cout << Shrubby_form3 << std::endl;
 		Bureaucrat_3.executeForm(Shrubby_form3);
+
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what( ) << std::endl;
+	}
+
+	std::cout << std::endl << "------Robotomize TEST -----" << std::endl<< std::endl;
+	try
+	{
+		Bureaucrat Bureaucrat_4("Bureaucrat_4", 40);
+		std::cout << "creation de : " << Bureaucrat_4 << std::endl;
+		RobotomyRequestForm Robot_form1("toto");
+		std::cout << "creation de : " << Robot_form1 << std::endl;
+
+		Bureaucrat_4.signAForm(Robot_form1);
+		std::cout << Robot_form1 << std::endl;
+		Bureaucrat_4.executeForm(Robot_form1);
+
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what( ) << std::endl;
+	}
+
+		std::cout << std::endl << "------pardon TEST -----" << std::endl<< std::endl;
+	try
+	{
+		Bureaucrat Bureaucrat_5("Bureaucrat_4", 3);
+		std::cout << "creation de : " << Bureaucrat_5 << std::endl;
+		PresidentialPardonForm pardon_form1("sylvain");
+		std::cout << "creation de : " << pardon_form1 << std::endl;
+
+		Bureaucrat_5.signAForm(pardon_form1);
+		std::cout << pardon_form1 << std::endl;
+		Bureaucrat_5.executeForm(pardon_form1);
 
 	}
 	catch(const std::exception &e)
