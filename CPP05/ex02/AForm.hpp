@@ -8,10 +8,10 @@ class Bureaucrat; // declaration anticipee (pour eviter les ref circulaires)
 class AForm
 {
 	private :
-		const std::string	_name;
-		const int			_gradeToSigne;
-		const int			_gradeToExecute;
-		bool				_signature;
+		const std::string	_name; // attention modif SDU
+		const int			_gradeToSigne; // attention modif SDU
+		const int			_gradeToExecute; // attention modif SDU
+		bool				_signature; // attention modif SDU
 
 	public :
 		AForm();
@@ -27,8 +27,7 @@ class AForm
 		int getGradeToSigne() const;
 		int getGradeToExecute() const;
 
-		void setGradeToSigne(int grade);
-		void setGradeToExecute(int grade);
+		void setSignature(int i);
 
 		void execute(Bureaucrat const &executor) const;
 		virtual void execute_form_action() const = 0; //virtuel pure
@@ -46,6 +45,11 @@ class AForm
 				const char* what() const throw();
 		};
 
+		class NotSignedException : public std::exception
+		{
+			public :
+				const char* what() const throw();
+		};
 };
 
 std::ostream& operator<<(std::ostream &os, const AForm &form);

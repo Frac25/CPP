@@ -9,7 +9,7 @@
 class Bureaucrat
 {
 	private :
-		std::string _name;
+		const std::string _name;
 		int _grade;
 
 	public :
@@ -20,9 +20,8 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat &copy);
 
 		std::string getName() const;
-		void setName(const std::string &name);
-
 		int getGrade() const;
+
 		void setGrade(int grade);
 
 		void increment(int grade);
@@ -42,7 +41,7 @@ class Bureaucrat
 		};
 
 		//ajout ex01
-		void signAForm(AForm &form); //verifier les const
+		void signAForm(AForm &form) const;
 
 		//ajout ex02
 		void executeForm(const AForm &form) const;

@@ -1,13 +1,12 @@
 #include"Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("bureaucrat"), _grade(150)
+Bureaucrat::Bureaucrat() : _name("bureaucrat_name_default"), _grade(150)
 {
 
 }
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade)
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
 {
-	setName(name);
 	setGrade(grade);
 }
 
@@ -23,7 +22,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat & copy) : _name(copy._name), _grade(copy
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy)
 {
-	_name = copy._name;
 	_grade = copy._grade;
 	return(*this);
 }
@@ -31,11 +29,6 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy)
 std::string Bureaucrat::getName() const
 {
 	return(_name);
-}
-
-void Bureaucrat::setName(const std::string &name)
-{
-	_name = name;
 }
 
 int Bureaucrat::getGrade() const
@@ -92,7 +85,7 @@ std::ostream &operator<<(std::ostream &os, Bureaucrat const &other)
 }
 
 //ajout ex01
-void Bureaucrat::signAForm(AForm &form)
+void Bureaucrat::signAForm(AForm &form) const
 {
 	form.beSigned(*this);
 }
@@ -100,17 +93,5 @@ void Bureaucrat::signAForm(AForm &form)
 //ajout ex02
 void Bureaucrat::executeForm(const AForm &form) const
 {
-	try
-	{
-	//if(new_grade < 1)
-	//	throw GradeTooHighException();
-	//if(new_grade > 150)
-	//	throw GradeTooLowException();
-		form.execute(*this);
-		std::cout << _name << "executed " << form << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	form.execute(*this);
 }

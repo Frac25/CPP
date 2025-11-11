@@ -6,7 +6,7 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubby_form_default",145,137), _target("target_default")
 {
-	std::ofstream outfile(_target);
+	//std::ofstream outfile(_target);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
@@ -17,13 +17,18 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string & target) : AForm
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & copy) : AForm(copy)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & copy) : AForm(copy), _target(copy._target)
 {
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm & copy)
 {
-	_target = copy._target;
+//	*this = copy; //v1
+//	_target = copy._target; //v1
+
+	setSignature(copy.getSignature()); //v2
+	_target = copy._target; //v2
+
 	return(*this);
 }
 
