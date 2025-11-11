@@ -1,13 +1,12 @@
 #include"Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("bureaucrat"), _grade(150)
+Bureaucrat::Bureaucrat() : _name("bureaucrat_name_default"), _grade(150)
 {
 
 }
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade)
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
 {
-	setName(name);
 	setGrade(grade);
 }
 
@@ -18,12 +17,11 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat::Bureaucrat(const Bureaucrat & copy) : _name(copy._name), _grade(copy._grade)
 {
-	
+
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy)
 {
-	_name = copy._name;
 	_grade = copy._grade;
 	return(*this);
 }
@@ -31,11 +29,6 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &copy)
 std::string Bureaucrat::getName() const
 {
 	return(_name);
-}
-
-void Bureaucrat::setName(const std::string &name)
-{
-	_name = name;
 }
 
 int Bureaucrat::getGrade() const

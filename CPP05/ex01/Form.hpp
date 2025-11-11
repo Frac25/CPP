@@ -20,15 +20,12 @@ class Form
 		Form(const Form &copy);
 		Form &operator=(const Form &copy);
 
-		void beSigned(const Bureaucrat &bureaucrat);
-
 		std::string getName() const;
 		bool getSignature() const;
 		int getGradeToSigne() const;
 		int getGradeToExecute() const;
 
-		void setGradeToSigne(int grade);
-		void setGradeToExecute(int grade);
+		void beSigned(const Bureaucrat &bureaucrat);
 
 		class GradeTooHighException : public std::exception
 		{

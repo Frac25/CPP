@@ -13,9 +13,6 @@
 		_gradeToExecute(gradeToExecute),
 		_signature(0)
 	{
-	//	setGradeToSigne(gradeToSigne); // pourquoi ca ne fomctionne pas alors que pk pour les bureaucrat?
-	//	setGradeToExecute(gradeToExecute);
-
 		if(gradeToSigne < 1 || gradeToExecute < 1)
 			throw GradeTooHighException();
 		if(gradeToSigne > 150 || gradeToExecute > 150)
@@ -78,42 +75,22 @@
 		return(_gradeToExecute);
 	}
 
-	void Form::setGradeToSigne(int grade)
-	{
-		if(grade < 1)
-			throw GradeTooHighException();
-		if(grade > 150)
-			throw GradeTooLowException();
-//		_gradeToSigne = grade;
-	}
-
-	void Form::setGradeToExecute(int grade)
-	{
-		if(grade < 1)
-			throw GradeTooHighException();
-		if(grade > 150)
-			throw GradeTooLowException();
-//		_gradeToExecute = grade;
-	}
-
 const char *Form::GradeTooHighException::what() const throw()
 {
-	return ("Grade too High!");
+	return ("Form Grade too High!");
 }
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return ("Grade too Low!");
+	return ("Form Grade too Low!");
 }
-
-
 
 std::ostream &operator<<(std::ostream &os, const Form &form)
 {
-	os << form.getName() 
-	<< "  GTS " << form.getGradeToSigne() 
-	<< "  GTE " << form.getGradeToExecute() 
-	<< " sign " << form.getSignature() 
+	os << form.getName()
+	<< "  GTS " << form.getGradeToSigne()
+	<< "  GTE " << form.getGradeToExecute()
+	<< " sign " << form.getSignature()
 	<< std::endl;
 	return (os);
 }
