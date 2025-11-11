@@ -94,6 +94,13 @@
 //		_gradeToExecute = grade;
 	}
 
+	void AForm::execute(Bureaucrat const &executor) const
+	{
+		std::cout << "check  grade to execute and signature" << std::endl;
+		std::cout << "execute : " << executor.getName();
+		execute_form_action();
+	}
+
 const char *AForm::GradeTooHighException::what() const throw()
 {
 	return ("Grade too High!");
@@ -109,7 +116,6 @@ std::ostream &operator<<(std::ostream &os, const AForm &form)
 	os << form.getName()
 	<< "  GTS " << form.getGradeToSigne()
 	<< "  GTE " << form.getGradeToExecute()
-	<< " sign " << form.getSignature()
-	<< std::endl;
+	<< " sign " << form.getSignature();
 	return (os);
 }

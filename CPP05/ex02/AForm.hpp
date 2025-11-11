@@ -13,9 +13,6 @@ class AForm
 		const int			_gradeToExecute;
 		bool				_signature;
 
-	protected :
-		std::string _target;
-
 	public :
 		AForm();
 		AForm(const std::string name, int gradeToSigne, int gradeToExecute);
@@ -33,7 +30,9 @@ class AForm
 		void setGradeToSigne(int grade);
 		void setGradeToExecute(int grade);
 
-		virtual void execute(Bureaucrat const &bureaucrat) const = 0; //virtuel pure
+		void execute(Bureaucrat const &executor) const;
+		virtual void execute_form_action() const = 0; //virtuel pure
+
 
 		class GradeTooHighException : public std::exception
 		{

@@ -2,7 +2,8 @@ NAME = form
 
 PROG =	main\
 		Bureaucrat\
-		AForm
+		AForm\
+		ShrubberyCreationForm
 
 OBJ_DIR = obj
 

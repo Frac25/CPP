@@ -96,3 +96,21 @@ void Bureaucrat::signAForm(AForm &form)
 {
 	form.beSigned(*this);
 }
+
+//ajout ex02
+void Bureaucrat::executeForm(const AForm &form) const
+{
+	try
+	{
+	//if(new_grade < 1)
+	//	throw GradeTooHighException();
+	//if(new_grade > 150)
+	//	throw GradeTooLowException();
+		form.execute(*this);
+		std::cout << _name << "executed " << form << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+}

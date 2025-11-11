@@ -42,7 +42,10 @@ class Bureaucrat
 		};
 
 		//ajout ex01
-		void signAForm(AForm &form);
+		void signAForm(AForm &form); //verifier les const
+
+		//ajout ex02
+		void executeForm(const AForm &form) const;
 
 };
 
