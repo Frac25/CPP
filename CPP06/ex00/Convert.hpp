@@ -30,6 +30,7 @@ class Convert
 
 e_type	find_type(const std::string& l);
 
+void convSpe(const std::string& l);
 void convChar(const std::string& l);
 void convInt(const std::string& l);
 void convFloat(const std::string& l);
