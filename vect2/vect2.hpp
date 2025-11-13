@@ -14,6 +14,7 @@ class vect2
 	vect2(int v0, int v1);
 	vect2(const vect2& copy);
 	vect2& operator=(const vect2& copy);
+
 	int operator[](int i);
 
 	vect2& operator++(); //++v4
@@ -36,7 +37,7 @@ class vect2
 
 	bool operator==(const vect2& copy) const;
 	bool operator!=(const vect2& copy) const;
-	
+
 };
 
 vect2 operator*(int i, const vect2& copy);
