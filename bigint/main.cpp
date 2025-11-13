@@ -20,7 +20,7 @@ int main()
 //	std::cout << "f = " << f << std::endl; //sdu
 //	std::cout << "g = " << g << std::endl; //sdu
 //	std::cout << "h = " << h << std::endl; //sdu
-//	std::cout << "i = " << i << std::endl; //sdu
+	std::cout << "i = " << i << std::endl; //sdu
 
 	std::cout << "a + b = " << a + b << std::endl;
 //	std::cout << "d + b = " << d + b << std::endl;//sdu

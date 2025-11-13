@@ -17,8 +17,8 @@ class bigint
 	bigint operator+(const bigint& big) const;
 	bigint& operator+=(const bigint& big);
 
-	bigint& operator++(int);
-	bigint operator++(void);
+	bigint& operator++();
+	bigint operator++(int);
 
 	bigint operator<<(int i);
 	bigint& operator<<=(int i);

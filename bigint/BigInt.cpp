@@ -2,7 +2,6 @@
 
 bigint::bigint()
 {
-
 }
 
 bigint::bigint(unsigned int value)
@@ -77,14 +76,14 @@ bigint& bigint::operator+=(const bigint& big)
 	return(*this);
 }
 
-bigint& bigint::operator++(int)
+bigint& bigint::operator++()
 {
 	*this += 1;
 
 	return(*this);
 }
 
-bigint bigint::operator++(void)
+bigint bigint::operator++(int)
 {
 	bigint tmp(*this);
 
@@ -177,7 +176,9 @@ bool bigint::operator!=(const bigint& big) const
 
 bool bigint::operator<(const bigint& big) const
 {
-	int i = _value.size();
+	int i = _value.size() - 1;
+//	// std::cout << "_value.size()" << _value.size() << std::endl;
+//	std::cout << "big._value.size()" << big._value.size() << std::endl;
 	if(_value.size() < big._value.size())
 		return(1);
 	if(_value.size() > big._value.size())
@@ -205,9 +206,9 @@ bool bigint::operator<=(const bigint& big) const
 
 bool bigint::operator>(const bigint& big) const
 {
-	if(_value != big._value && !(_value < big._value))
-		return(1);
-	return(0);
+	if(*this == big || *this < big)
+		return(0);
+	return(1);
 }
 
 bool bigint::operator>=(const bigint& big) const
