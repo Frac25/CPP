@@ -1,23 +1,23 @@
 #include"Convert.hpp"
 
-void convSpe(const std::string& l)
+void convSpe(const std::string& str)
 {
 
-	if (l == "nan" || l == "nanf")
+	if (str == "nan" || str == "nanf")
 	{
 		std::cout << "char : impossible" << std::endl;
 		std::cout << "int : impossible" << std::endl;
 		std::cout << "float : nanf" << std::endl;
 		std::cout << "double : nan" << std::endl;
 	}
-	else if (l == "+inf" || l == "+inff")
+	else if (str == "+inf" || str == "+inff")
 	{
 		std::cout << "char : impossible" << std::endl;
 		std::cout << "int : impossible" << std::endl;
 		std::cout << "float : +inff" << std::endl;
 		std::cout << "double : +inf" << std::endl;
 	}
-	else if (l == "-inf" || l == "-inff")
+	else if (str == "-inf" || str == "-inff")
 	{
 		std::cout << "char : impossible" << std::endl;
 		std::cout << "int : impossible" << std::endl;
@@ -26,14 +26,14 @@ void convSpe(const std::string& l)
 	}
 }
 
-void convChar(const std::string& l)
+void convChar(const std::string& str)
 {
 	char c;
 
-	if (l.length() == 1)
-		c = l[0];
+	if (str.length() == 1)
+		c = str[0];
 	else
-		c = l[1];
+		c = str[1];
 
 	if(isprint(c))
 	{
@@ -43,85 +43,95 @@ void convChar(const std::string& l)
 		std::cout << "char : Non displayable" << std::endl;
 
 	std::cout << "int : " << static_cast<int>(c) << std::endl;
-	std::cout << "float : " << static_cast<float>(c) << ".0f" <<std::endl;
+	std::cout << "float : " << static_cast<float>(c) << ".0f" << std::endl;
 	std::cout << "double : " << static_cast<double>(c) << ".0" << std::endl;
 
 }
 
-void convInt(const std::string& l)
+void convInt(const std::string& str)
 {
-	long i = std::stol(l);
+	long i = std::stol(str);
 
 	if(isprint(i))
 		std::cout << "char : '" << static_cast<char>(i) << "'" << std::endl;
 	else
 		std::cout << "char : Not displayable" << std::endl;
 
-	if(i >= std::numeric_limits<int>::min() && i <= std::numeric_limits<int>::max())
+	if(i >= std::numeric_limits<int>::lowest() && i <= std::numeric_limits<int>::max())
 		std::cout << "int : " << static_cast<int>(i) << std::endl;
 	else
 		std::cout << "int : impossible" << std::endl;
 
-	if(i >= std::numeric_limits<float>::min() && i <= std::numeric_limits<float>::max())
+	if(i >= std::numeric_limits<float>::lowest() && i <= std::numeric_limits<float>::max())
 		std::cout << "float : " << static_cast<float>(i) << ".0f" << std::endl;
 	else
-		std::cout << "int : impossible" << std::endl;
+		std::cout << "float : impossible" << std::endl;
 
-	if(i >= std::numeric_limits<double>::min() && i <= std::numeric_limits<double>::max())
+	if(i >= std::numeric_limits<double>::lowest() && i <= std::numeric_limits<double>::max())
 		std::cout << "double : " << static_cast<double>(i) << ".0" << std::endl;
 	else
-		std::cout << "int : impossible" << std::endl;
+		std::cout << "double : impossible" << std::endl;
 
 }
 
-void convFloat(const std::string& l)
+void convFloat(const std::string& str)
 {
-	float f = std::stof(l);
+	float f = std::stof(str);
+	float f2 = f;
 
-	if(isprint(f))
-		std::cout << "char : '" << static_cast<char>(f) << "'" << std::endl;
+	if(f >= std::numeric_limits<int>::lowest() && f <= std::numeric_limits<int>::max() && isprint(static_cast<int>(f)))
+		std::cout << "char : '" << static_cast<char>(f2) << "'" << std::endl;
 	else
 		std::cout << "char : Not displayable" << std::endl;
 
-	if(f >= std::numeric_limits<int>::min() && f <= std::numeric_limits<int>::max())
+	if(f >= std::numeric_limits<int>::lowest() && f <= std::numeric_limits<int>::max())
 		std::cout << "int : " << static_cast<int>(f) << std::endl;
 	else
 		std::cout << "int : impossible" << std::endl;
 
-	if(f >= std::numeric_limits<float>::min() && f <= std::numeric_limits<float>::max())
-		std::cout << "float : " << static_cast<float>(f) << std::endl;
+	if (f == 0)
+		std::cout << "float : 0.0f" << std::endl;
+	else if(f >= std::numeric_limits<float>::lowest() && f <= std::numeric_limits<float>::max())
+		std::cout << "float : " << static_cast<float>(f) << "f" << std::endl;
 	else
-		std::cout << "int : impossible" << std::endl;
+		std::cout << "float : impossible" << std::endl;
 
-	if(f >= std::numeric_limits<double>::min() && f <= std::numeric_limits<double>::max())
+	if (f == 0)
+		std::cout << "double : 0.0" << std::endl;
+	else if(f >= std::numeric_limits<double>::lowest() && f <= std::numeric_limits<double>::max())
 		std::cout << "double : " << static_cast<double>(f) << std::endl;
 	else
-		std::cout << "int : impossible" << std::endl;
+		std::cout << "double : impossible" << std::endl;
 }
 
 
-void convDouble(const std::string& l)
+void convDouble(const std::string& str)
 {
-	double d = std::stod(l);
+	double d = std::stod(str);
 
-	if(isprint(d))
+//	if(isprint(d))
+	if(d >= std::numeric_limits<int>::lowest() && d <= std::numeric_limits<int>::max() && isprint(static_cast<int>(d)))
 		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
 	else
 		std::cout << "char : Not displayable" << std::endl;
 
-	if(d >= std::numeric_limits<int>::min() && d <= std::numeric_limits<int>::max())
+	if(d >= std::numeric_limits<int>::lowest() && d <= std::numeric_limits<int>::max())
 		std::cout << "int : " << static_cast<int>(d) << std::endl;
 	else
 		std::cout << "int : impossible" << std::endl;
 
-	if(d >= std::numeric_limits<float>::min() && d <= std::numeric_limits<float>::max())
-		std::cout << "float : " << static_cast<float>(d) << std::endl;
+	if (d == 0)
+		std::cout << "float : 0.0f" << std::endl;
+	else if(d >= std::numeric_limits<float>::lowest() && d <= std::numeric_limits<float>::max())
+		std::cout << "float : " << static_cast<float>(d) << "f" << std::endl;
 	else
-		std::cout << "int : impossible" << std::endl;
+		std::cout << "float : impossible" << std::endl;
 
-	if(d >= std::numeric_limits<double>::min() && d <= std::numeric_limits<double>::max())
+	if (d == 0)
+		std::cout << "double : 0.0" << std::endl;
+	else if(d >= std::numeric_limits<double>::lowest() && d <= std::numeric_limits<double>::max())
 		std::cout << "double : " << static_cast<double>(d) << std::endl;
 	else
-		std::cout << "int : impossible" << std::endl;
+		std::cout << "double : impossible" << std::endl;
 
 }
