@@ -9,6 +9,7 @@ int main(void)
 	std::cout << " size A = " << A.size() << std::endl;
 	std::cout << " A[0] = " << A[0] << std::endl;
 
+
 	return(0);
 
 }
