@@ -14,10 +14,16 @@ class Array
 		Array(const Array &copy);
 		Array& operator=(const Array &copy);
 
-		const T& operator[](unsigned int i) const; //gerer les hors limite
-		T& operator[](unsigned int i); //gerer les hors limite
+		const T& operator[](unsigned int i) const;
+		T& operator[](unsigned int i);
 
 		unsigned int size() const;
+
+		class OutOfBoundsException : public std::exception
+		{
+			public :
+				virtual const char * what() const throw();
+		};
 
 	private :
 		T* 				_arr;
@@ -25,6 +31,4 @@ class Array
 };
 
 #include"Array.tpp"
-
-
 #endif

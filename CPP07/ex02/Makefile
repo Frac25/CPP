@@ -2,6 +2,7 @@ NAME = array
 
 PROG =	main
 
+
 PROGTPP = Array
 
 OBJ_DIR = obj

@@ -33,34 +33,39 @@ Array<T>::Array(const Array &copy) : _arr(new T[copy._size]), _size(copy._size)
 template<typename T>
 Array<T>& Array<T>::operator=(const Array &copy)
 {
-	_size = copy._size;
-
-	delete[] _arr;
-	_arr = new T[_size];
-
-	unsigned int i = 0;
-	while(i < _size)
+	if(this != &copy)
 	{
-		_arr[i] = copy._arr[i];
-		i++;
-	}
 
+		if(_size != copy._size)
+		{
+			delete[] _arr;
+			_arr = new T[_size];
+			_size = copy._size;
+		}
+
+		unsigned int i = 0;
+		while(i < _size)
+		{
+			_arr[i] = copy._arr[i];
+			i++;
+		}
+	}
 	return(*this);
 }
 
 template<typename T>
 const T& Array<T>::operator[](unsigned int i) const
 {
-//	if ( i >= _size )
-//		throw (OutOfBoundsException());
+	if ( i >= _size )
+		throw (OutOfBoundsException());
 	return(_arr[i]);
 }
 
 template<typename T>
 T& Array<T>::operator[](unsigned int i)
 {
-//	if ( i >= _size )
-//		throw (OutOfBoundsException());
+	if ( i >= _size )
+		throw (OutOfBoundsException());
 	return(_arr[i]);
 }
 
@@ -70,7 +75,11 @@ unsigned int Array<T>::size() const
 	return(_size);
 }
 
-
+template<typename T>
+const char* Array<T>::OutOfBoundsException::what() const throw()
+{
+	return("Index out of bound");
+}
 
 
 #endif
