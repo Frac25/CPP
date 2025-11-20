@@ -39,8 +39,9 @@ Array<T>& Array<T>::operator=(const Array &copy)
 		if(_size != copy._size)
 		{
 			delete[] _arr;
-			_arr = new T[_size];
 			_size = copy._size;
+			_arr = new T[_size];
+
 		}
 
 		unsigned int i = 0;
