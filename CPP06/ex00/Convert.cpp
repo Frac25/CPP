@@ -27,10 +27,10 @@ void Convert::convert(const std::string& l)
 	type = find_type(l);
 
 	std::cout << "type = " << type << std::endl;
-/*	std::cout << "int lowest = " << std::numeric_limits<int>::lowest() << std::endl;
-	std::cout << "float lowest = " << std::numeric_limits<float>::lowest() << std::endl;
-	std::cout << "double lowest = " << std::numeric_limits<double>::lowest() << std::endl;
-	std::cout << "long lowest = " << std::numeric_limits<long>::lowest() << std::endl<< std::endl;
+/*	std::cout << "int min = " << std::numeric_limits<int>::min() << std::endl;
+	std::cout << "float min = " << std::numeric_limits<float>::min() << std::endl;
+	std::cout << "double min = " << std::numeric_limits<double>::min() << std::endl;
+	std::cout << "long min = " << std::numeric_limits<long>::min() << std::endl<< std::endl;
 	std::cout << "int max = " << std::numeric_limits<int>::max() << std::endl;
 	std::cout << "float max = " << std::numeric_limits<float>::max() << std::endl;
 	std::cout << "double max = " << std::numeric_limits<double>::max() << std::endl;

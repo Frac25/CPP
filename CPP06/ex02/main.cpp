@@ -73,7 +73,6 @@ void identify(Base& p)
 
 int main(void)
 {
-
 	srand(time(NULL));
 
 	Base* base_ptr = generate();

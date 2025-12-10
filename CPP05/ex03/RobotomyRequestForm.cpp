@@ -6,7 +6,7 @@
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm",72,45), _target("target_default")
 {
-	srand(time(NULL));
+
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
@@ -15,7 +15,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string & target) : AForm("RobotomyRequestForm",72,45), _target(target)
 {
-	srand(time(NULL));
+
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & copy) : AForm(copy), _target(copy._target)

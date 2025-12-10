@@ -4,6 +4,9 @@
 #include<iostream>
 #include<string>
 #include<algorithm>
+#include<limits>
+#include<cstdlib>
+#include<cctype>
 
 enum e_type
 {

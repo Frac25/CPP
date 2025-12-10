@@ -7,6 +7,9 @@
 
 int main(void)
 {
+
+	srand(time(NULL));
+
 	std::cout << std::endl << "------Intern TEST ------" << std::endl<< std::endl;
 	try
 	{
