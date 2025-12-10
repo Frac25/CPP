@@ -7,6 +7,8 @@
 
 int main(void)
 {
+	srand(time(NULL));
+	
 	std::cout << std::endl << "------Shrubby TEST ------" << std::endl<< std::endl;
 	try
 	{

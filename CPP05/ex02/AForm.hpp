@@ -2,6 +2,8 @@
 # define AFORM_HPP
 
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 class Bureaucrat; // declaration anticipee (pour eviter les ref circulaires)
 

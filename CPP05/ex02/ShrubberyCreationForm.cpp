@@ -29,7 +29,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::execute_form_action(void)const
 {
-	std::ofstream outfile((_target + "_shrubbery"));
+	std::ofstream outfile((_target + "_shrubbery").c_str());
 	if(outfile)
 	{
 		outfile << "\\/\\/\\/\\/" << std::endl;
