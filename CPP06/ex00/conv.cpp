@@ -2,7 +2,6 @@
 
 void convSpe(const std::string& str)
 {
-
 	if (str == "nan" || str == "nanf")
 	{
 		std::cout << "char : impossible" << std::endl;
@@ -51,87 +50,103 @@ void convChar(const std::string& str)
 void convInt(const std::string& str)
 {
 	long i = std::strtol(str.c_str(), NULL, 10);
-
-	if(isprint(i))
-		std::cout << "char : '" << static_cast<char>(i) << "'" << std::endl;
+	if(errno == ERANGE)
+	{
+		std::cout << "strtol overflow" << std::endl;
+	}
 	else
-		std::cout << "char : Not displayable" << std::endl;
+	{
+		if(i >= 0 && i <= 255 && isprint(static_cast<unsigned char>(i)))
+			std::cout << "char : '" << static_cast<char>(i) << "'" << std::endl;
+		else
+			std::cout << "char : Not displayable" << std::endl;
 
-	if(i >= std::numeric_limits<int>::min() && i <= std::numeric_limits<int>::max())
-		std::cout << "int : " << static_cast<int>(i) << std::endl;
-	else
-		std::cout << "int : impossible" << std::endl;
+		if(i >= std::numeric_limits<int>::min() && i <= std::numeric_limits<int>::max())
+			std::cout << "int : " << static_cast<int>(i) << std::endl;
+		else
+			std::cout << "int : impossible" << std::endl;
 
-	if(i >= std::numeric_limits<float>::min() && i <= std::numeric_limits<float>::max())
-		std::cout << "float : " << static_cast<float>(i) << ".0f" << std::endl;
-	else
-		std::cout << "float : impossible" << std::endl;
+		if(i >= std::numeric_limits<float>::min() && i <= std::numeric_limits<float>::max())
+			std::cout << "float : " << static_cast<float>(i) << ".0f" << std::endl;
+		else
+			std::cout << "float : impossible" << std::endl;
 
-	if(i >= std::numeric_limits<double>::min() && i <= std::numeric_limits<double>::max())
-		std::cout << "double : " << static_cast<double>(i) << ".0" << std::endl;
-	else
-		std::cout << "double : impossible" << std::endl;
-
+		if(i >= std::numeric_limits<double>::min() && i <= std::numeric_limits<double>::max())
+			std::cout << "double : " << static_cast<double>(i) << ".0" << std::endl;
+		else
+			std::cout << "double : impossible" << std::endl;
+	}
 }
 
 void convFloat(const std::string& str)
 {
 	float f = static_cast<float>(std::strtod(str.c_str(),NULL));
-	float f2 = f;
-
-	if(f >= std::numeric_limits<int>::min() && f <= std::numeric_limits<int>::max() && isprint(static_cast<int>(f)))
-		std::cout << "char : '" << static_cast<char>(f2) << "'" << std::endl;
+	if(errno == ERANGE)
+	{
+		std::cout << "strtod overflow" << std::endl;
+	}
 	else
-		std::cout << "char : Not displayable" << std::endl;
+	{
+		float f2 = f;
 
-	if(f >= std::numeric_limits<int>::min() && f <= std::numeric_limits<int>::max())
-		std::cout << "int : " << static_cast<int>(f) << std::endl;
-	else
-		std::cout << "int : impossible" << std::endl;
+		if(f >= 0 && f <= 255 && isprint(static_cast<unsigned char>(f)))//sdu
+			std::cout << "char : '" << static_cast<char>(f2) << "'" << std::endl;
+		else
+			std::cout << "char : Not displayable" << std::endl;
 
-	if (f == 0)
-		std::cout << "float : 0.0f" << std::endl;
-	else if(f >= std::numeric_limits<float>::min() && f <= std::numeric_limits<float>::max())
-		std::cout << "float : " << static_cast<float>(f) << "f" << std::endl;
-	else
-		std::cout << "float : impossible" << std::endl;
+		if(f >= std::numeric_limits<int>::min() && f <= std::numeric_limits<int>::max())
+			std::cout << "int : " << static_cast<int>(f) << std::endl;
+		else
+			std::cout << "int : impossible" << std::endl;
 
-	if (f == 0)
-		std::cout << "double : 0.0" << std::endl;
-	else if(f >= std::numeric_limits<double>::min() && f <= std::numeric_limits<double>::max())
-		std::cout << "double : " << static_cast<double>(f) << std::endl;
-	else
-		std::cout << "double : impossible" << std::endl;
+		if (f == 0)
+			std::cout << "float : 0.0f" << std::endl;
+		else if(f >= std::numeric_limits<float>::min() && f <= std::numeric_limits<float>::max())
+			std::cout << "float : " << static_cast<float>(f) << "f" << std::endl;
+		else
+			std::cout << "float : impossible" << std::endl;
+
+		if (f == 0)
+			std::cout << "double : 0.0" << std::endl;
+		else if(f >= std::numeric_limits<double>::min() && f <= std::numeric_limits<double>::max())
+			std::cout << "double : " << static_cast<double>(f) << std::endl;
+		else
+			std::cout << "double : impossible" << std::endl;
+	}
 }
 
 
 void convDouble(const std::string& str)
 {
 	double d = std::strtod(str.c_str(),NULL);
-
-//	if(isprint(d))
-	if(d >= std::numeric_limits<int>::min() && d <= std::numeric_limits<int>::max() && isprint(static_cast<int>(d)))
-		std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
+	if(errno == ERANGE)
+	{
+		std::cout << "strtod overflow" << std::endl;
+	}
 	else
-		std::cout << "char : Not displayable" << std::endl;
+	{
+		if(d >= 0 && d <= 255 && isprint(static_cast<unsigned char>(d)))
+			std::cout << "char : '" << static_cast<char>(d) << "'" << std::endl;
+		else
+			std::cout << "char : Not displayable" << std::endl;
 
-	if(d >= std::numeric_limits<int>::min() && d <= std::numeric_limits<int>::max())
-		std::cout << "int : " << static_cast<int>(d) << std::endl;
-	else
-		std::cout << "int : impossible" << std::endl;
+		if(d >= std::numeric_limits<int>::min() && d <= std::numeric_limits<int>::max())
+			std::cout << "int : " << static_cast<int>(d) << std::endl;
+		else
+			std::cout << "int : impossible" << std::endl;
 
-	if (d == 0)
-		std::cout << "float : 0.0f" << std::endl;
-	else if(d >= std::numeric_limits<float>::min() && d <= std::numeric_limits<float>::max())
-		std::cout << "float : " << static_cast<float>(d) << "f" << std::endl;
-	else
-		std::cout << "float : impossible" << std::endl;
+		if (d == 0)
+			std::cout << "float : 0.0f" << std::endl;
+		else if(d >= std::numeric_limits<float>::min() && d <= std::numeric_limits<float>::max())
+			std::cout << "float : " << static_cast<float>(d) << "f" << std::endl;
+		else
+			std::cout << "float : impossible" << std::endl;
 
-	if (d == 0)
-		std::cout << "double : 0.0" << std::endl;
-	else if(d >= std::numeric_limits<double>::min() && d <= std::numeric_limits<double>::max())
-		std::cout << "double : " << static_cast<double>(d) << std::endl;
-	else
-		std::cout << "double : impossible" << std::endl;
-
+		if (d == 0)
+			std::cout << "double : 0.0" << std::endl;
+		else if(d >= std::numeric_limits<double>::min() && d <= std::numeric_limits<double>::max())
+			std::cout << "double : " << static_cast<double>(d) << std::endl;
+		else
+			std::cout << "double : impossible" << std::endl;
+	}
 }

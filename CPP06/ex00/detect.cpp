@@ -32,15 +32,14 @@ static bool isInt(const std::string& l)
 			return(0);
 		i++;
 	}
+	
 	return(1);
 }
 
 static bool isFloat(const std::string& l)
 {
-	if (l == "-inff" || l == "+inff" || l == "nanf")
-		return(1);
-
 	int i = 0;
+
 	if(l[i] == '+' || l[i] == '-')
 		i++;
 
@@ -78,10 +77,8 @@ static bool isFloat(const std::string& l)
 
 static bool isDouble(const std::string& l)
 {
-	if (l == "-inf" || l == "+inf" || l == "nan")
-		return(1);
-
 	int i = 0;
+	
 	if(l[i] == '+' || l[i] == '-')
 		i++;
 

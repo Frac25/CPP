@@ -7,6 +7,7 @@
 #include<limits>
 #include<cstdlib>
 #include<cctype>
+#include<cerrno>
 
 enum e_type
 {
