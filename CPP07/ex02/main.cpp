@@ -9,8 +9,8 @@ int main(void)
 		A[0] = 42;
 		std::cout << " size A = " << A.size() << std::endl;
 		std::cout << " A[0] = " << A[0] << std::endl;
+		std::cout << " A[9] = " << A[9] << std::endl;
 		std::cout << " A[12] = " << A[12] << std::endl;
-
 	}
 
 	catch (std::exception & e)

@@ -1,0 +1,53 @@
+Assignement name : life
+Expected file : *.c *.h
+Allowed fonctions : atoi, read, putchar, malloc, calloc, realloc, free
+
+You must right a programme that will simulate a game of life. the prototype 
+of this program is the following :
+./life width height iteration
+
+Width and eight are the dimentions of the board and iterations is the number 
+of iteration of the game life.
+
+the initial configuration of the board will be drawn by a  sequence of 
+commands in the standard input.
+Imagine a pen starting in the top left corner of the board. Each command is
+one of these characteres :
+w a s d -> move the pen up, left, bottom and right
+x -> lift or lower the pen in order to start or stop drawing.
+(when used whith 'echo', you can ignore the \n)
+Once end of life is reached, your program must simulate a game of life on 
+this board and print the result on the standard out (each cell alive will be
+represented by a '0' and dead by a space)
+each cell outside of the array will be considered dead
+
+exemple :
+
+$>echo 'sdxddssaaww' | ./a.out 3 3 0 | cat -e
+   $
+000$
+0 0$
+000$
+   $
+
+$>echo 'dxss' | ./a.out 3 3 0 | cat -e
+ 0 $
+ 0 $
+ 0 $
+
+ $>echo 'dxsss' | ./a.out 3 3 1 | cat -e
+   $
+000$
+   $
+
+$>echo 'dxsss' | ./a.out 3 3 2 | cat -e
+ 0 $
+ 0 $
+ 0 $
+
+ $>echo 'sdxssdswdxddddsxaadwxwdxwaa' | ./a.out 10 6 0 | cat -e
+           $
+ 0     000 $
+ 0      0  $
+ 000   0   $
+  0    000 $

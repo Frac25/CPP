@@ -1,6 +1,6 @@
 NAME = array
 
-PROG =	main_subject
+PROG =	main
 
 PROGTPP = Array
 

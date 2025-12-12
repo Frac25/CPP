@@ -1,0 +1,23 @@
+The universe of the game of life is an infinite, two-dimentionnal
+orthogonal grid of square cells, each of witch is in one of two 
+possible state live or dead (or pupulated and unpopulated, respectively).
+Every cell interacts whith its eight neighbours, witch are the cells that are
+horizontally, vertically or diagonally adjacent. At each step in time, 
+the following transition occur :
+-Any line cell with fewer than 2 live neighbours dies, as if by underpopulation
+-Any live cell whith 2 or 3 live neighbours lives on to the next generation
+-Any live cell whith more than 3 live neighbous dies, as if by overpopulation
+-Any dead cell whith exactly 3 live neighbours becomes a live cell, as if by reproduction
+The rules, whith compare the behaviour of the automation to real life, can be 
+condensed into the following :
+
+Any live cell whith 2 or 3 live neighbours survive
+Any dead cell whith 3 live neighbours become a live cell
+Any other live cells die in the next generation. similary all other dead cells stay dead.
+
+The initial pattern constitutes the seed of the systeme
+The first generation is created by applying the above rules simultaneously to
+every cell in the seed, live or dead ; births ans deaths occure simultaneously, and the 
+discrete moment at witch this happens is sometime call tick. Each generation is a pure 
+fonction of the preceding one. The rule continue ti be applied repeatedly to create 
+further generations
