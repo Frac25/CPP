@@ -44,5 +44,6 @@ void convFloat(const std::string& l);
 void convDouble(const std::string& l);
 
 double dec_part(double d);
+double int_part(double d);
 
 #endif

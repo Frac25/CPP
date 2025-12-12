@@ -67,7 +67,8 @@ void convInt(const std::string& str)
 		else
 			std::cout << "int : impossible" << std::endl;
 
-		std::cout << std::fixed << std::setprecision(1);
+		if(int_part(i) < 1000000)
+			std::cout << std::fixed << std::setprecision(1);
 
 		if(i >= -std::numeric_limits<float>::max()  && i <= std::numeric_limits<float>::max())
 			std::cout << "float : " << static_cast<float>(i) << "f" << std::endl;
@@ -102,7 +103,7 @@ void convFloat(const std::string& str)
 		else
 			std::cout << "int : impossible" << std::endl;
 
-		if(dec_part(f) == 0)
+		if(dec_part(f) == 0 && int_part(f) < 1000000)
 			std::cout << std::fixed << std::setprecision(1);
 
 		std::cout << "float : " << f << "f" << std::endl;
@@ -135,7 +136,7 @@ void convDouble(const std::string& str)
 		else
 			std::cout << "int : impossible" << std::endl;
 
-		if(dec_part(d) == 0)
+		if(dec_part(d) == 0 && int_part(d) < 1000000)
 			std::cout << std::fixed << std::setprecision(1);
 
 		if(d >= -std::numeric_limits<float>::max() && d <= std::numeric_limits<float>::max())

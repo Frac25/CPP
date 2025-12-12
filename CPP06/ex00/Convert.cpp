@@ -72,6 +72,19 @@ double dec_part(double d)
 	{
 		int_part = std::ceil(d);
 	}
-	std::cout << "fabs = " << std::fabs(int_part) << " dec = " << std::fabs(d) - std::fabs(int_part) <<std::endl;
+	//std::cout << "fabs = " << std::fabs(int_part) << " dec = " << std::fabs(d) - std::fabs(int_part) <<std::endl;
 	return(std::fabs(d) - std::fabs(int_part));
+}
+
+double int_part(double d)
+{
+	double int_part;
+	if(d >= 0.0)
+		int_part = std::floor(d);
+	else
+	{
+		int_part = std::ceil(d);
+	}
+	//std::cout << "fabs = " << std::fabs(int_part) << " int = " << std::fabs(int_part) <<std::endl;
+	return(std::fabs(int_part));
 }
