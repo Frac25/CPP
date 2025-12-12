@@ -8,6 +8,9 @@
 #include<cstdlib>
 #include<cctype>
 #include<cerrno>
+#include<iomanip>
+#include<sstream>
+#include<cmath>
 
 enum e_type
 {
@@ -39,5 +42,7 @@ void convChar(const std::string& l);
 void convInt(const std::string& l);
 void convFloat(const std::string& l);
 void convDouble(const std::string& l);
+
+double dec_part(double d);
 
 #endif
