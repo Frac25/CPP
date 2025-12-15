@@ -19,5 +19,5 @@ The initial pattern constitutes the seed of the systeme
 The first generation is created by applying the above rules simultaneously to
 every cell in the seed, live or dead ; births ans deaths occure simultaneously, and the 
 discrete moment at witch this happens is sometime call tick. Each generation is a pure 
-fonction of the preceding one. The rule continue ti be applied repeatedly to create 
+fonction of the preceding one. The rule continue to be applied repeatedly to create 
 further generations
