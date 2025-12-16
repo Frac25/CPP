@@ -1,7 +1,7 @@
 #ifndef LIFE_H
 # define LIFE_H
 
-#define BUFFERSIZE 1000
+#define BUFFERSIZE 5
 
 #include<stdio.h>
 #include<unistd.h>

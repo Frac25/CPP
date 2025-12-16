@@ -1,24 +1,5 @@
 #include"life.h"
 
-
-void init_map(char** map, t_data data)
-{
-	int j;
-	int i;
-
-	j = 0;
-	while(map[j])
-	{
-		i = 0;
-		while(map[j][i])
-		{
-			map[j][i] = data.dead;
-			i++;
-		}
-		j++;
-	}
-}
-
 char** create_map(t_data data)
 {
 	char ** map;
@@ -29,19 +10,18 @@ char** create_map(t_data data)
 	map[data.height] = NULL;
 
 	j = 0;
-	while(map[j])
+	while(j < data.height)
 	{
 		map[j] = malloc(sizeof(char) * (data.width  + 1));
 		map[j][data.width] = '\0';
 		i = 0;
-		while(map[j][i])
+		while(i < data.width)
 		{
 			map[j][i] = data.dead;
 			i++;
 		}
 		j++;
 	}
-	init_map(map, data);
 	return(map);
 }
 
@@ -108,7 +88,7 @@ void write_map(t_data data)
 	while(data.buf[b])
 	{
 		if(i > data.width || j > data.height)
-			printf("write error");
+			write(1,"error",5);
 		if(data.buf[b] == 'x')
 			x = (x + 1) % 2;
 		else if(data.buf[b] == 'd')
@@ -120,7 +100,7 @@ void write_map(t_data data)
 		else if(data.buf[b] == 'w')
 			j--;
 		else
-			printf("map format error\n");
+			write(1,"error",5);
 
 //		printf("x = %d   i = %d   j = %d    buf[b] = %c\n", x, i, j, data.buf[b]);
 		if(x == 1)
@@ -196,7 +176,13 @@ int main(int argc, char** argv)
 	}
 
 	data.buf = malloc(sizeof(char) * (BUFFERSIZE + 1));
+	if (data.buf == NULL)
+		return(-1);
+
+	data.buf[BUFFERSIZE] = '\0';
 	data.buf_size = read(fd, data.buf, BUFFERSIZE);
+	if(data.buf_size < 0)
+		return(-1);
 	data.buf[data.buf_size -1] = '\0';
 
 //	printf("argc : %d   argv[1] : %s iteration : %s \n", argc, argv[1], argv[3]);
