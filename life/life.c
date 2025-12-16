@@ -7,10 +7,10 @@ void init_map(char** map, t_data data)
 	int i;
 
 	j = 0;
-	while(j < data.height)
+	while(map[j])
 	{
 		i = 0;
-		while(i < data.width)
+		while(map[j][i])
 		{
 			map[j][i] = data.dead;
 			i++;
@@ -23,17 +23,24 @@ char** create_map(t_data data)
 {
 	char ** map;
 	int j;
+	int i;
 
 	map = malloc(sizeof(char*) * (data.height  + 1));
 	map[data.height] = NULL;
 
 	j = 0;
-	while(j < data.height)
+	while(map[j])
 	{
 		map[j] = malloc(sizeof(char) * (data.width  + 1));
+		map[j][data.width] = '\0';
+		i = 0;
+		while(map[j][i])
+		{
+			map[j][i] = data.dead;
+			i++;
+		}
 		j++;
 	}
-	map[j] = NULL;
 	init_map(map, data);
 	return(map);
 }
@@ -61,7 +68,6 @@ void copie_map(char **map, char** map2)
 void free_map(char** map)
 {
 	int j;
-	int i;
 
 	j = 0;
 	while(map[j])
@@ -116,7 +122,7 @@ void write_map(t_data data)
 		else
 			printf("map format error\n");
 
-		printf("x = %d   i = %d   j = %d    buf[b] = %c\n", x, i, j, data.buf[b]);
+//		printf("x = %d   i = %d   j = %d    buf[b] = %c\n", x, i, j, data.buf[b]);
 		if(x == 1)
 			data.map[j][i] = data.live;
 		b++;
@@ -182,7 +188,6 @@ int main(int argc, char** argv)
 	data.dead = '.';
 	data.live = '0';
 	int fd = 0;
-	int nb_read;
 
 	if(argc != 4)
 	{
@@ -201,9 +206,7 @@ int main(int argc, char** argv)
 	data.width = atoi(argv[1]);
 	data.height = atoi(argv[2]);
 	data.iteration = atoi(argv[3]);
-	int j;
-
-	printf("width : %d   height : %d iteration : %d \n", data.width, data.height, data.iteration);
+//	printf("width : %d   height : %d iteration : %d \n", data.width, data.height, data.iteration);
 
 	data.map = create_map(data);
 	data.map2 = create_map(data);
@@ -215,12 +218,12 @@ int main(int argc, char** argv)
 		run(data);
 		copie_map(data.map, data.map2);
 		it++;
-		print_map(data.map);
-		putchar('\n');
-	}
-
 //		print_map(data.map);
 //		putchar('\n');
+	}
+
+	print_map(data.map);
+	putchar('\n');
 
 	free (data.buf);
 	free_map(data.map);
