@@ -3,6 +3,7 @@
 
 #include<iostream>
 #include<exception>
+#include<algorithm>
 
 
 class NotFoundExeption : public std::exception
